@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 public class CustomUserDetailsService implements UserDetailsService {
     private final UserRepository userRepository;
 
-    public CustomUserDetailsService(UserRepository userRepository){
+    public CustomUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
@@ -29,14 +29,13 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .map(user -> createUser(username, user))
                 .orElseThrow(() -> new UsernameNotFoundException(username + " -> 데이터베이스에서 찾을 수 없습니다."));
     }
-
     private org.springframework.security.core.userdetails.User createUser(String username, User user) {
-        // 유저가 활성화상태라면
         if (!user.isActivated()) {
             throw new RuntimeException(username + " -> 활성화되어 있지 않습니다.");
         }
+        // 유저가 활성화상태라면
         List<GrantedAuthority> grantedAuthorities = user.getAuthorities().stream()
-                .map(authority -> new SimpleGrantedAuthority(authority.getAutorityName()))
+                .map(authority -> new SimpleGrantedAuthority(authority.getAuthorityName()))
                 .collect(Collectors.toList());
         // 유저이름, 유저패스워드, 권한정보가지고 User객체를 반환함
         return new org.springframework.security.core.userdetails.User(user.getUsername(),

@@ -4,7 +4,6 @@ import com.jwttutorial.jwttutorial.dto.LoginDto;
 import com.jwttutorial.jwttutorial.dto.TokenDto;
 import com.jwttutorial.jwttutorial.jwt.JwtFilter;
 import com.jwttutorial.jwttutorial.jwt.TokenProvider;
-import lombok.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
