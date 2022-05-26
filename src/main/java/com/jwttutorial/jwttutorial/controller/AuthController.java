@@ -34,6 +34,7 @@ public class AuthController {
 
         UsernamePasswordAuthenticationToken authenticationToken =
                 new UsernamePasswordAuthenticationToken(loginDto.getUsername(), loginDto.getPassword());
+        System.out.println("authenticationToken = " + authenticationToken);
 
         // authenticationToken을 이용해서 authenticate메서드가 실행이 될때 loadUserByUsername메서드가 실행됨
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);

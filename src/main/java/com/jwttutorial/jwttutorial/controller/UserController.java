@@ -1,6 +1,5 @@
 package com.jwttutorial.jwttutorial.controller;
 
-
 import com.jwttutorial.jwttutorial.dto.UserDto;
 import com.jwttutorial.jwttutorial.entity.User;
 import com.jwttutorial.jwttutorial.service.UserService;
@@ -9,9 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
-import java.io.IOException;
 
 @RestController
 @RequestMapping("/api")
