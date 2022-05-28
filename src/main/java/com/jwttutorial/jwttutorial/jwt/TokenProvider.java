@@ -74,7 +74,7 @@ public class TokenProvider implements InitializingBean {
     }
 
     /**
-     * Token에 담겨있는 정보를 이용해 Authentication 객체를 리턴하는 메소드 생성
+     * Token에 담겨있는 정보를 이용해 Authentication 객체를 리턴하는 getAuthentication 메소드 생성
      * @param token
      * @return
      */
