@@ -18,7 +18,6 @@ public class SecurityUtil {
     /**
      * Authentication 객체를 꺼내와서 username을 반환
      * (JwtFilter의 doFilter가 실행될때 Authentication 객체가 채워짐)
-     * @return
      */
     public static Optional<String> getCurrentUsername(){
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();

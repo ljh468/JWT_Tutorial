@@ -4,6 +4,7 @@ import com.jwttutorial.jwttutorial.jwt.JwtAccessDeniedHandler;
 import com.jwttutorial.jwttutorial.jwt.JwtAuthenticationEntryPoint;
 import com.jwttutorial.jwttutorial.jwt.JwtSecurityConfig;
 import com.jwttutorial.jwttutorial.jwt.TokenProvider;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -22,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
     private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
 
+    @Autowired
     public SecurityConfig(  //생성자 주입
                             TokenProvider tokenProvider,
                             JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint,
@@ -68,7 +70,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 
-                // HttpServletRequest 요청에 대 접근제한을 설정
+                // HttpServletRequest 요청에 접근제한을 설정
                 .and()
                 .authorizeRequests()
                 // "/api/hello" 요청허용

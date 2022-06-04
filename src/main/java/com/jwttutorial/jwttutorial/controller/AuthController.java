@@ -40,8 +40,11 @@ public class AuthController {
         Authentication authentication = authenticationManagerBuilder.getObject().authenticate(authenticationToken);
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
+        System.out.println("authentication = " + authentication);
+
         // 인증정보를 기준으로 JWT token을 생성함
         String jwt = tokenProvider.createToken(authentication);
+        System.out.println("jwt = " + jwt);
 
         HttpHeaders httpHeaders = new HttpHeaders();
         // Token을 response header에 넣어주고 responseBudy에도 넣어줌
