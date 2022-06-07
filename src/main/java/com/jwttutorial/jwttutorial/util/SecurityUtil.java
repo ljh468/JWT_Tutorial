@@ -12,8 +12,6 @@ public class SecurityUtil {
 
     private static final Logger logger = LoggerFactory.getLogger(SecurityUtil.class);
 
-    private SecurityUtil(){
-    }
 
     /**
      * Authentication 객체를 꺼내와서 username을 반환
